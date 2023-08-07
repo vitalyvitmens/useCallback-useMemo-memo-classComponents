@@ -22,9 +22,25 @@ export const App = () => {
 	const [num, setNum] = useState(0)
 	const [degree, setDegree] = useState(0)
 
-	const onNumChange = useCallback(({ target }) => {
-		setNum(Number(target.value))
-	}, [])
+	// const onNumChange = useCallback(({ target }) => {
+	// 	setNum(Number(target.value))
+	// }, [])
+
+	const onNumChange = useMemo(
+		() =>
+			({ target }) => {
+				setNum(Number(target.value))
+			},
+		[]
+	)
+
+	// const onDegreeChange = useMemo(
+	// 	() =>
+	// 		({ target }) => {
+	// 			setDegree(Number(target.value))
+	// 		},
+	// 	[]
+	// )
 
 	const onDegreeChange = useCallback(({ target }) => {
 		setDegree(Number(target.value))
