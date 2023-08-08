@@ -34,9 +34,25 @@ export const GoodByeMessage2 = ({ user }) => {
 
 const HelloMessageWithLogging = withLogging(HelloMessage2)
 const RedHelloMessageWithLoggingAndColor = withLoggingAndColor(
-	HelloMessage2,
+	GoodByeMessage2,
 	'red'
 )
+
+const MessageWithLoggingAndColor = ({ Message, color, ...props }) => {
+	console.log(props.user)
+
+	return (
+		<span style={{ color }}>
+			<Message {...props} />
+		</span>
+	)
+}
+
+const ComponentWithLoggingAndColor = ({ children, color, ...props }) => {
+	console.log(props.user)
+
+	return <span style={{ color }}>{children}</span>
+}
 
 export const UserWidget2 = ({ Message, messageProps }) => {
 	const user = 'Василий'
@@ -46,8 +62,18 @@ export const UserWidget2 = ({ Message, messageProps }) => {
 			<div>Текущий пользователь: {user}</div>
 			<div>Сообщение:</div>
 			<HelloMessageWithLogging user={user} />
-      <br/>
+			<br />
 			<RedHelloMessageWithLoggingAndColor user={user} />
+			<br />
+			<MessageWithLoggingAndColor
+				Message={HelloMessage2}
+				color="green"
+				user={user}
+			/>
+			<br />
+			<ComponentWithLoggingAndColor color="blue" user={user}>
+				<HelloMessage2 user={user} />
+			</ComponentWithLoggingAndColor>
 		</div>
 	)
 }
