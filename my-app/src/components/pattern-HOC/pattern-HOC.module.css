@@ -1,0 +1,12 @@
+.h2 {
+	color: rgb(174, 175, 87);
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+}
+
+p {
+	width: 50px;
+}

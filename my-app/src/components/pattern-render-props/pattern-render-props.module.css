@@ -1,0 +1,12 @@
+.h2 {
+	color: brown;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+}
+
+p {
+	width: 50px;
+}
